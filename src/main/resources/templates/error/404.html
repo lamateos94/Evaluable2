@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>404 Not Found</title>
+	<style>
+		/* Estilo para la imagen */
+		.styled-image {
+			max-width: 6000px;
+			max-height: 3000px;
+			border: 2px solid #ccc;
+			box-shadow: 5px 5px 5px #888;
+		}
+	</style>
+</head>
+
+<body>
+	<h3>Error 404</h3>
+	<div>Page was not found</div>
+	<div th:text="${status}"></div>
+	<div th:text="${timestamp}"></div>
+	<hr>
+
+
+	<img class="styled-image" th:src="@{/images/404.png}">
+</body>
+
+</html>

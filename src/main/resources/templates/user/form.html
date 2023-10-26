@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title th:text="${title}"></title>
+</head>
+
+<body>
+	<h1 th:text="${title}"></h1>
+	<form th:action="@{/user/form}" th:object="${user}" method="post">
+		<table>
+			<tr>
+				<td>Name</td>
+				<td><input type="text" th:field="*{name}" /></td>
+				<td th:if="${#fields.hasErrors('name')}"><small th:errors="*{name}" class="form-text text-danger"></small></td>
+			</tr>
+
+			<tr>
+				<td>Last Name</td>
+				<td><input type="text" th:field="*{lastName}" /></td>
+				<td th:if="${#fields.hasErrors('lastName')}"><small th:errors="*{lastName}" class="form-text text-danger"></small></td>
+			</tr>
+
+			<tr>
+				<td>E-mail</td>
+				<td><input type="email" th:field="*{email}" /></td>
+				<td th:if="${#fields.hasErrors('email')}"><small th:errors="*{email}" class="form-text text-danger"></small></td>
+			</tr>
+
+			<tr>
+				<td>Fecha</td>
+				<td><input type="text" th:field="*{createAt}" class="form-control" /></td>
+				<td th:if="${#fields.hasErrors('createAt')}"><small th:errors="*{createAt}" class="form-text text-danger"></small></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" value="Save" /></td>
+			</tr>
+
+		</table>
+
+		<input type="hidden" th:field="*{id}" />
+	</form>
+
+</body>
+
+</html>
